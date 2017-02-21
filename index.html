@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="myModule" ng-controller="myController">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>{{headerText}}</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+<div class="advancedOptions">
+  <div class="advancedHeader">Advanced Options  <a ng-click="state = true">{{showButton + " "}}</a> <a ng-click="state = false">{{" " + hideButton}}</a>  </div>
+        <div class="bgControl" ng-show="state">
+            <label class="input"> Set List Background Color: <input type="text" ng-model="selectedColor"/> </label>
+            <br/> <br/>
+            <label> Set List Text Color: <input type="text" ng-model="textColor"/> </label>
+            <br/>            <br />
+
+            <label> Set List Alt Color: <input type="text" ng-model="oddListColor"/> </label>
+            <br />            <br />
+            <label> Set Border Color: <input type="text" ng-model="borderColor"/> </label>
+            <br />            <br />
+
+
+            <select ng-model="selectedColor" ng-options="x for x in colorList"></select>
+<button ng-click="randomColorAssign()">Random Colors</button> <button ng-click="clearList()">Clear List</button>
+<br />            <br />
+<label> Set Header Text: <input type="text" ng-model="headerText"/> </label>
+<br />            <br />
+<label> Set Header Image URL: <input type="text" ng-model="headerImg"/> </label>
+<br />            <br />
+
+        </div>
+</div>
+
+        <div class="todoBox">
+            <style>
+                    .todoBox {
+                    background-color: {{selectedColor}};
+                    color: {{textColor}};
+                    border-color: {{borderColor}}
+
+                  }
+
+                  .cList:nth-child(odd){
+                    background-color: {{oddListColor}};
+
+                  };
+            </style>
+
+
+            <img src="{{headerImg}}" width="70px">
+            <h2> {{headerText}}</h2>
+            <div class="inputBox">
+                <label>  Search: <input type="text" ng-model="searchItem" /></label>
+                <p> </p>
+            </div>
+
+<div class="campingListClass">
+            <ul>
+                <li class="cList" ng-repeat="item in campingList | filter:searchItem">{{item}} <a class="textButton" ng-click="remove(item)">-</a></li>
+            </ul>
+            <p> </p>
+
+
+          </div>
+          <label>  Add Item: <input type="text" ng-model="toDoItem" /> <input type="button" Value="Add" ng-click="addItem()" /> </label>
+          <p> </p>
+        </div>
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+        <script src="script.js"></script>
+
+</body>
+
+</html>

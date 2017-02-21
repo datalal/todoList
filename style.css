@@ -1,0 +1,47 @@
+body{
+
+  transition: all 1000ms linear;
+  transition-property: color, height, width, background-color;
+
+}
+
+.todoBox{
+border: 7px solid DarkGreen;
+width: 400px;
+padding: 5px;
+font-family: monospace;
+border-radius: 5px;
+background-color: tan;
+transition: all 1000ms linear;
+transition-property: color, height, width, background-color. border-color;
+
+
+}
+
+
+.cList{
+
+
+
+}
+
+
+.cList:nth-child(odd){
+
+background-color: wheat;
+transition: all 1000ms linear;
+transition-property: color, height, width, background-color;
+
+
+}
+
+.advancedOptions{
+font-family: monospace;
+position: fixed;
+right: 10px;
+top: 10px;
+border: black solid 1px;
+padding: 5px;
+transition: all 2s linear;
+transition-property: color, height, width, background-color, opacity;
+}
